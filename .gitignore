@@ -1,0 +1,35 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+*.iws
+/out/
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+logs
+*.log
+npm-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+coverage
+.nyc_output
+.grunt
+.lock-wscript
+build/Release
+node_modules
+jspm_packages
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+
+# firebase 설정(톱니바퀴 아이콘) > 프로젝트 설정 > 서비스 계정 > 새 비공개키 생성 버튼 클릭해 받는 파일
+serviceAccountKey.json
+# databaseURL 정보를 보관하는 설정 파일
+databaseConfig.json
