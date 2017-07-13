@@ -2,6 +2,7 @@
  * Created by dakbutfly on 2017-07-13.
  */
 const chai = require('chai');
+chai.use(require('chai-things'));
 const expect = chai.expect;
 
 var admin = require("firebase-admin");
@@ -9,6 +10,7 @@ var admin = require("firebase-admin");
 var serviceAccount = require("../serviceAccountKey.json");
 //{ "databaseURL" : <발급받은 URL> }
 var databaseConfig = require("../databaseConfig.json");
+
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -64,13 +66,14 @@ describe('fire base 테스트', function() {
     });
 
     function findAllUsers() {
-
+        return Promise.resolve([1,2,3,4]);
     }
 
     it('db 에서 리스트로 값 가져오기', (done) => {
         findAllUsers()
             .then((list) => {
                 expect(list).to.have.lengthOf(4);
+                expect(list).include.a.item.property("id", me.id);
                 done();
             })
             .catch(done)
