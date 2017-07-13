@@ -81,6 +81,23 @@ describe('fire base 테스트', function() {
                 done();
             })
             .catch(done)
+    }).timeout(10000);
+
+    function findTwoUsersOrderByName() {
+
+    }
+
+    it('이름 순으로 두번째까지 출력', (done) => {
+        findTwoUsersOrderByName()
+            .then((snapshot) => {
+                const userMap = snapshot.toJSON();
+                console.log(userMap);
+                expect(Object.keys(userMap)).to.have.lengthOf(2);
+                expect(userMap[me.id]).to.be.deep.equal(me);
+                expect(userMap[jinblog.id]).to.be.deep.equal(jinblog);
+                done();
+            })
+            .catch(done);
     }).timeout(10000)
 
 
