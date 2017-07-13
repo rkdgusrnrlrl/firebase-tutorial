@@ -84,7 +84,7 @@ describe('fire base 테스트', function() {
     }).timeout(10000);
 
     function findTwoUsersOrderByName() {
-
+        return db.ref("/users").orderByChild('name').limitToFirst(2).once('value');
     }
 
     it('이름 순으로 두번째까지 출력', (done) => {
