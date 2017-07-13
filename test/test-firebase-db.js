@@ -63,5 +63,18 @@ describe('fire base 테스트', function() {
             .catch(done);
     });
 
+    function findAllUsers() {
+
+    }
+
+    it('db 에서 리스트로 값 가져오기', (done) => {
+        findAllUsers()
+            .then((list) => {
+                expect(list).to.have.lengthOf(4);
+                done();
+            })
+            .catch(done)
+    })
+
 
 });
