@@ -66,18 +66,22 @@ describe('fire base 테스트', function() {
     });
 
     function findAllUsers() {
-        return Promise.resolve([1,2,3,4]);
+        return db.ref("/users").once('value');
     }
 
     it('db 에서 리스트로 값 가져오기', (done) => {
         findAllUsers()
             .then((list) => {
-                expect(list).to.have.lengthOf(4);
-                expect(list).include.a.item.property("id", me.id);
+                const userMap = list.toJSON();
+                expect(Object.keys(userMap)).to.have.lengthOf(4);
+                expect(userMap[me.id]).to.be.deep.equal(me);
+                expect(userMap[changju.id]).to.be.deep.equal(changju);
+                expect(userMap[junhwang.id]).to.be.deep.equal(junhwang);
+                expect(userMap[jinblog.id]).to.be.deep.equal(jinblog);
                 done();
             })
             .catch(done)
-    })
+    }).timeout(10000)
 
 
 });
